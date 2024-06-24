@@ -1,0 +1,7 @@
+project_name: gcplearning24
+
+gcp_service_list:
+    - compute.googleapis.com
+    - networkmanagement.googleapis.com
+    - cloudapis.googleapis.com
+    - iam.googleapis.com
