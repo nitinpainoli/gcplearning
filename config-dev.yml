@@ -1,0 +1,12 @@
+common_labels:
+   Project: "Test"
+   Environment: "dev"
+
+compute:
+  machine_type: "e2-medium"
+  zones: "us-central1-a"  # Single zone as a string
+  image: "debian-cloud/debian-9"
+  disk_size_gb: 12
+  subnetname: default
+  networktag: private 
+  project_name: gcplearning24
