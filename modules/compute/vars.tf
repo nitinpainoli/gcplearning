@@ -31,7 +31,7 @@ variable "machine_type" {
 }
 
 variable "zones" {
-  type        = list(string)
+  
 
 }
 

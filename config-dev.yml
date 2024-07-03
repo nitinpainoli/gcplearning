@@ -4,7 +4,7 @@ common_labels:
 
 compute:
   machine_type: "e2-medium"
-  zones: "us-central1-a"  # Single zone as a string
+  zones: "us-central1-a"
   image: "debian-cloud/debian-9"
   disk_size_gb: 12
   subnetname: default
