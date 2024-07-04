@@ -1,11 +1,11 @@
 common_labels:
-   Project: "Test"
-   Environment: "dev"
+   project: "test"
+   environment: "dev"
 
 compute:
   machine_type: "e2-medium"
   zones: "us-central1-a"
-  image: "debian-cloud/debian-9"
+  image: "debian-cloud/debian-11"
   disk_size_gb: 12
   subnetname: default
   networktag: private 

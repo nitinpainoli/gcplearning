@@ -13,6 +13,6 @@ provider "google" {
 }
 
 locals {
-  env_space = yamldecode(file("../config-${terraform.workspace}.yml"))
+  env_space = yamldecode(file("../../config-${terraform.workspace}.yml"))
   workspace = local.env_space
 }

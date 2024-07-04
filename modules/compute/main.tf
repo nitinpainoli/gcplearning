@@ -19,7 +19,7 @@ resource "google_compute_instance" "vm" {
   labels = merge(
     var.common_labels,
     {
-      Name        = "${var.project_name}-${terraform.workspace}-vm"
+      name        = "${var.project_name}-${terraform.workspace}-vm"
     }
   )
 
@@ -40,5 +40,13 @@ resource "google_compute_instance" "vm" {
    metadata = {
     ssh-keys        = "${var.ssh_user}:tls_private_key.ssh_key.public_key_openssh"
       } 
+   metadata_startup_script = "echo hi > /test.txt"
+   
 }
 
+
+resource "local_file" "pem_key_file_bastion" {
+  content         = "${tls_private_key.ssh_key.private_key_pem}"
+  filename        = "${pathexpand("${var.project_name}-${terraform.workspace}-vm.pem")}"
+  file_permission = "0400"
+}
