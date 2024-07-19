@@ -53,3 +53,6 @@ variable "ssh_user" {
   default = "ubuntu"
 }
 
+
+variable metadata_startup_script {
+}

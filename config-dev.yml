@@ -8,5 +8,5 @@ compute:
   image: "debian-cloud/debian-11"
   disk_size_gb: 12
   subnetname: default
-  networktag: private 
+  networktag: public 
   project_name: gcplearning24

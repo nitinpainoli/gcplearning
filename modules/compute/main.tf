@@ -40,7 +40,7 @@ resource "google_compute_instance" "vm" {
    metadata = {
     ssh-keys        = "${var.ssh_user}:tls_private_key.ssh_key.public_key_openssh"
       } 
-   metadata_startup_script = "echo hi > /test.txt"
+   metadata_startup_script = var.metadata_startup_script
    
 }
 
