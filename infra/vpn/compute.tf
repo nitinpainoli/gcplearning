@@ -1,16 +1,11 @@
-data "template_file" "user_data" {
-  template = file("${path.module}/pritunl.sh")
-}
+module "bastion" {
+  source = "../../modules/pritunl"
+  project_name = local.workspace.project_name
+  machine_type = local.workspace.vpn.machine_type
+  image = local.workspace.vpn.image
+  disk_size_gb = local.workspace.vpn.disk_size_gb
+  subnetname = data.terraform_remote_state.vpc.outputs.subnetname
+  static_ip = data.terraform_remote_state.vpc.outputs.nat_ip
+  zone  = local.workspace.vpn.zone
 
-module "compute" {
-    source = "../../modules/compute"
-    machine_type = local.workspace.compute.machine_type
-    zones         = local.workspace.compute.zones
-    image = local.workspace.compute.image
-    disk_size_gb = local.workspace.compute.disk_size_gb
-    subnetname = local.workspace.compute.subnetname    
-    project_name = local.workspace.compute.project_name
-    common_labels = local.workspace.common_labels
-    networktag  = local.workspace.compute.networktag
-    metadata_startup_script = base64encode(data.template_file.user_data.rendered)
 }
