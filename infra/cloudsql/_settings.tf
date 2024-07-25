@@ -8,14 +8,16 @@ terraform {
 
   backend "gcs" {
    bucket  = "gcp-tf-gcplearning24-backend"
-   prefix  = "vpc/main.tf"
+   prefix  = "database/main.tf"
  }
 }
+
 
 provider "google" {
   project     = "gcplearning24"
   region      = "us-central1"
 }
+
 
 locals {
   env_space = yamldecode(file("../../config-${terraform.workspace}.yml"))

@@ -2,6 +2,7 @@ common_labels:
    project: "test"
    environment: "dev"
 
+project_name: gcplearning24
 compute:
   machine_type: "e2-medium"
   zones: "us-central1-a"
@@ -9,4 +10,15 @@ compute:
   disk_size_gb: 12
   subnetname: default
   networktag: public 
-  project_name: gcplearning24
+vpn:
+  machine_type: "e2-medium"
+  image: "ubuntu-os-cloud/ubuntu-2004-lts"
+  disk_size_gb: 12
+  zone: "us-central1-b"
+
+db:
+  db_instance_name: "test"
+  database_version: "POSTGRES_16"
+
+  
+  

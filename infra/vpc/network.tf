@@ -1,6 +1,14 @@
+resource "google_project_service" "gcp_services" {
+  for_each = toset(var.gcp_service_list)
+  project = local.workspace.project_name
+  service = each.key
+  disable_dependent_services=true
+  disable_on_destroy = false
+}
+
+
 module "vpc" {
-  source = "./modules/vpc"
-  null_var = values(google_project_service.gcp_services)[*].id
-  project_name = local.workspace.compute.project_name
+  source = "../../modules/vpc"
+  project_name = local.workspace.project_name
   
 }

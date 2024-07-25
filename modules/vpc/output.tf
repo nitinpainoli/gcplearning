@@ -11,7 +11,7 @@ output "vpc_self" {
 output "subnetwork_self" {
   
     
-  value = google_compute_subnetwork.PrivateGKE.self_link
+  value = google_compute_subnetwork.PrivateApp.self_link
 }
 
 
@@ -37,12 +37,6 @@ output "subnetnamegke" {
 }
 
 
-output "cluster_secondary_range" {
-  value =  google_compute_subnetwork.PrivateApp.ip_cidr_range
-}
-output "cluster_service_range" {
-  value = google_compute_subnetwork.PrivateApp.ip_cidr_range
-}
 
 
 output "nat_ip" {

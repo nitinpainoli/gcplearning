@@ -1,10 +1,12 @@
 variable "name" {
      description = "name of vpc"
      type = string
+     default = "myvpc"
   
 }
 
 variable  "nat_name" {
+     default = "testnat"
   
 }
 
